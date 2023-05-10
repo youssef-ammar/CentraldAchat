@@ -1,0 +1,72 @@
+<ng-template #secondDialog>
+  <h2 matDialogTitle>{{ message }} </h2>
+
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose color="primary">Dismiss</button>
+  </mat-dialog-actions>
+</ng-template>
+<section class="py-5">
+  <div class="container">
+    <!-- Breadcrumbs -->
+    <ol class="breadcrumb pl-0  justify-content-start">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+
+      <li class="breadcrumb-item active">Personal info   </li>
+    </ol>
+    <h1 class="hero-heading mb-0">Personal info</h1>
+    <p class="text-muted mb-5">Manage your Personal info and settings here.</p>
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="text-block">
+          <div class="row mb-3">
+            <div class="col-sm-9">
+              <h5>Personal Details</h5>
+            </div>
+
+            <p class="text-sm text-muted"><i class="fa fa-user"></i>{{firstName}} {{lastName}}<br>
+
+              <i class="fa fa-envelope"></i> {{email}}  <span class="mx-2"> | </span>
+              <i class="fa fa-phone fa-fw mr-2"></i>{{mobile}} <span class="mx-2"> | </span> <i class="fa fa-tasks fa-fw mr-2"></i>{{role}}</p>
+            <div class="collapse show" id="personalDetails" style="">
+              <form action="#">
+                <div class="row pt-4">
+                  <div class="form-group col-md-6">
+                    <label class="form-label" >FirstName</label>
+                    <input class="form-control" type="text" name="firstname" value="{{firstName}}" [(ngModel)]="firstName"  />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label class="form-label" >LastName</label>
+                    <input class="form-control" type="text" name="lastname"  value="{{lastName}}" [(ngModel)]="lastName" />
+                  </div>
+                  <div class="form-group col-md-6">
+                  <label class="form-label">Role:</label>
+                  <select class="form-control" name="role" [(ngModel)]="selectedRole" >
+                    <option *ngFor="let role of roles" [value]="role" >{{ role }}</option>
+                  </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label class="form-label" >Phone number</label>
+                    <input class="form-control" type="text" name="mobile" id="phone" value="{{mobile}}" [(ngModel)]="mobile"  />
+
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label class="form-label" >Password</label>
+                    <input class="form-control" type="text" name="password"   [(ngModel)]="password"  />
+
+                  </div>
+                </div>
+                <button class="btn btn-outline-primary mb-4" type="submit" (click)="updateUserData(secondDialog)">Save your personal details</button>
+              </form>
+              <button class="btn btn-outline-primary mb-4" type="submit" (click)="updateUserData(secondDialog)">
+                Delete your account</button>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
