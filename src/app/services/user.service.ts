@@ -29,12 +29,11 @@ export class UserService {
   findUserEmail: string='http://localhost:8000/oauth/Users';
   updateUser: string='http://127.0.0.1:8000/oauth/userUpdate/';
   userbyid: string='https://127.0.0.1:8000/findById';
-  ResetPass: string='https://127.0.0.1:8000';
+  ResetPass: string='http://127.0.0.1:8000/oauth/resetPassword';
   contacter: string="https://127.0.0.1:8000/contactuser";
   listerMess: string="https://127.0.0.1:8000/getallmessages";
   deletemess: string="https://127.0.0.1:8000/deleteMessage";
   uptImage: string='https://127.0.0.1:8000/updateImage';
-
 
   constructor(private http : HttpClient, private authService: AuthService
     ) { }
@@ -48,7 +47,12 @@ export class UserService {
     return this.http.get<User[]>(this.GetApi,{headers:httpHeaders});
 
       }
+updatePass(password:String,passToken:String):Observable<any>{
+  const url = `${this.ResetPass}/${passToken}`;
+  const data = { password };
+  return this.http.post(url, data);
 
+}
 
 
     consulterUser(id: number): Observable<User> {

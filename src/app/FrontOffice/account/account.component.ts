@@ -15,7 +15,11 @@ export class AccountComponent implements OnInit  {
     this.injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg')
   }
   goToRoute() {
+    this.router.navigate(['/Profile']);
+  }
+  goToRouteH(){
     this.router.navigate(['/Home']);
+
   }
 injectSvgSprite(path: string): void {
     const ajax = new XMLHttpRequest();

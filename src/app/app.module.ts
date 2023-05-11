@@ -22,6 +22,11 @@ import { NotFoundComponent } from './FrontOffice/not-found/not-found.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { FooterComponent } from './BackOffice/footer/footer.component';
+import { HeaderComponent } from './BackOffice/header/header.component';
+import { CreateUserComponent } from './BackOffice/create-user/create-user.component';
+import { ResetPasswordComponent } from './FrontOffice/reset-password/reset-password.component';
+import { NewPasswordComponent } from './FrontOffice/new-password/new-password.component';
 
 
 @NgModule({
@@ -34,6 +39,11 @@ import { MatIconModule } from '@angular/material/icon';
      AccountComponent,
      HomeComponent,
      NotFoundComponent,
+     FooterComponent,
+     HeaderComponent,
+     CreateUserComponent,
+     ResetPasswordComponent,
+     NewPasswordComponent,
 
 
 

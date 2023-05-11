@@ -1,5 +1,5 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../model/user';
 import {AuthService} from '../../services/auth.service';
 import {UserService} from '../../services/user.service';
@@ -46,7 +46,7 @@ export class ProfilComponent implements OnInit {
   role!: string;
 
 
-  constructor(private userService: UserService, private authService: AuthService, private dialog: MatDialog) {
+  constructor(private userService: UserService, private authService: AuthService, private dialog: MatDialog,private router: Router) {
   }
 
   ngOnInit(): void {
@@ -69,7 +69,10 @@ export class ProfilComponent implements OnInit {
       return null;
     }
   }
+  goToRouteH(){
+    this.router.navigate(['/Home']);
 
+  }
   findUserByEmail() {
     this.userService.rechercherParEmail(this.email).subscribe(us => {
       if (us) {

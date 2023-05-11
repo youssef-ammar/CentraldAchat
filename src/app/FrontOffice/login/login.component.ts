@@ -49,11 +49,20 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(templateRef: TemplateRef<any>) {
+    if (!this.email || !this.password ) {
+      this.message = 'Please fill in all required fields.';
 
+      this.dialog.open(templateRef);
+      setTimeout(() => {
+        this.dialog.closeAll();
+
+      }, 2000); // Delay for hiding the alert
+      return;
+    }
     this.authService.login(this.email, this.password).subscribe((data) => {
       console.log(data.status)
       console.log(data)
-      if(data.message=="NOT FOUND"){
+      if(data.message=="NOT_FOUND"){
         this.message = 'There is no account with this email';
 
         this.dialog.open(templateRef);
@@ -75,15 +84,22 @@ export class LoginComponent implements OnInit {
         return;
 
       }
-      this.message = 'Welcome again';
 
-      this.dialog.open(templateRef);
-      setTimeout(() => {
-        this.dialog.closeAll();
+        this.message = 'Welcome again';
 
-      }, 2000); // De
-      this.router.navigate(['/Profile']);
-    });
+        this.dialog.open(templateRef);
+        setTimeout(() => {
+          this.dialog.closeAll();
+
+        }, 2000); // De
+        this.router.navigate(['/Account']);
+
+
+    },
+      error => {
+        console.log(error);
+      }
+    );
 
   }
 

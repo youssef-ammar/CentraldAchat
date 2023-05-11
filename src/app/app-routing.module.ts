@@ -7,6 +7,9 @@ import {AccountComponent} from "./FrontOffice/account/account.component";
 // import {ProfileDetailsComponent} from "./FrontOffice/profile-details/profile-details.component";
 import { NotFoundComponent } from './FrontOffice/not-found/not-found.component';
 import {HomeComponent} from "./FrontOffice/home/home.component";
+import {CreateUserComponent} from "./BackOffice/create-user/create-user.component";
+import {ResetPasswordComponent} from "./FrontOffice/reset-password/reset-password.component";
+import {NewPasswordComponent} from "./FrontOffice/new-password/new-password.component";
 
 
 
@@ -20,7 +23,11 @@ const routes: Routes = [
   { path: 'Account', component: AccountComponent , title:"Account" },
   // { path: 'DetailsProfile', component: ProfileDetailsComponent , title:"Details" },
   { path: 'admin/User', component: DashboardUserComponent , title:"Users" },
+  { path: 'admin/addUser', component: CreateUserComponent , title:"AddUsers" },
   { path: 'Home', component: HomeComponent , title:"Home" },
+  { path: 'ResetPassword', component: ResetPasswordComponent , title:"ResetPassword" },
+  { path: 'NewPassword/:token', component: NewPasswordComponent , title:"NewPassword" },
+
   { path: '404', component: NotFoundComponent , title:"404" }
 
 

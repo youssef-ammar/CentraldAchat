@@ -3,6 +3,7 @@ import {User} from "../../model/user";
 import {UserService} from "../../services/user.service";
 import {AuthService} from "../../services/auth.service";
 import { ActivatedRoute } from '@angular/router';
+import jwt_decode from "jwt-decode";
 @Component({
   selector: 'app-dashboard-user',
   templateUrl: './dashboard-user.component.html',
@@ -33,24 +34,43 @@ export class DashboardUserComponent {
   passwordMatch!: boolean;
   passwordFieldsModified = false;
   errorMessagepw!: string;
-
-
+  role!: string;
+  create_at!: string;
 
   constructor(private userService: UserService , private authService: AuthService) { }
 
   ngOnInit(): void {
 
-    this.email =window.localStorage.getItem('currentUser')
+    this.token =window.localStorage.getItem('currentUser')
 
+
+    this.curentUser = jwt_decode(this.token);
+    this.email = this.curentUser.sub;
+    this.findUserByEmail()
     this.userService.getAllUsers()
       .subscribe(users => {
         this.users = users;
+        console.log(this.users);
       });
 
-console.log(this.users);
+
 
   }
+  findUserByEmail() {
+    this.userService.rechercherParEmail(this.email).subscribe(us => {
+      if (us) {
+        this.userData = us;
+        this.id = this.userData.id;
+        this.firstName = this.userData.firstName;
+        this.lastName = this.userData.lastName;
+        this.mobile = this.userData.mobile;
+        this.role=this.userData.role;
 
+
+      }
+
+    });
+  }
 
 deleteUser(user: User){
     this.authService.supprimerUser(user.id) .subscribe(() => {

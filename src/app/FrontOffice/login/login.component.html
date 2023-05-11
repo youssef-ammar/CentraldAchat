@@ -5,6 +5,8 @@
     <button mat-button matDialogClose color="primary">Dismiss</button>
   </mat-dialog-actions>
 </ng-template>
+
+
 <div class="container" id="container">
 
 
@@ -57,7 +59,7 @@
 
       <input type="email" placeholder="Email" name="emailL" [(ngModel)]="email" />
       <input type="password" placeholder="Password" name="passwordL" [(ngModel)]="password" />
-      <a href="#">Forgot your password?</a>
+      <a href="/ResetPassword">Forgot your password?</a>
       <button (click) =" onSubmit(secondDialog)">Sign In</button>
     </form>
 

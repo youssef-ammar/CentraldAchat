@@ -36,6 +36,7 @@ export class AuthService {
   apilogin: string='https://localhost/oauth/signin';
   deleteapi: string='http://127.0.0.1:8000/oauth/deleteUser';
   userById: string='https://127.0.0.1:8000/getUser';
+  forgetPass: string='http://127.0.0.1:8000/oauth/forgetPassword';
 
 
   token! : string;
@@ -130,7 +131,13 @@ export class AuthService {
 
         }
 
+  forgetPassword(email:string):Observable<any>{
+    const data = { email };
 
+    return this.http.post<any>(this.forgetPass, data);
+
+
+  }
 
  SignIn(user: User): Boolean {
     let validUser: Boolean = false;
