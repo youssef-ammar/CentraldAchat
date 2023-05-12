@@ -1,0 +1,88 @@
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" xmlns="http://www.w3.org/1999/html">
+  <!-- Sidebar Start -->
+  <app-back-header></app-back-header>
+   <div class="container-fluid">
+     <div class="container-fluid">
+       <div class="card">
+         <div class="card-body">
+           <h5 class="card-title fw-semibold mb-4">Add Product</h5>
+
+
+                 <div class="container">
+                   <div class="row justify-content-center">
+                     <div class="col-md-6">
+
+                      <form (ngSubmit)="onSubmit()">
+                          <label>
+                            Customer Name:
+                            <input type="text" name="customerName" [(ngModel)]="serviceapresvent.customerName" required>
+                          </label>
+                          <label>
+                            Customer Email:
+                            <input type="email" name="customerEmail" [(ngModel)]="serviceapresvent.customerEmail" required>
+                          </label>
+                          <label>
+                            Product:
+                            <input type="text" name="product" [(ngModel)]="serviceapresvent.product" required>
+                          </label>
+                          <label>
+                            Issue Description:
+                            <textarea name="issueDescription" [(ngModel)]="serviceapresvent.issueDescription" required></textarea>
+                          </label>
+                          <label>
+                            Is Resolved:
+                            <input type="checkbox" name="isResolved" [(ngModel)]="serviceapresvent.isResolved">
+                          </label>
+                          <label>
+                            Priority Level:
+                            <select name="priorityLevel" [(ngModel)]="serviceapresvent.priorityLevel" required>
+                              <option value="1">Low</option>
+                              <option value="2">Medium</option>
+                              <option value="3">High</option>
+                            </select>
+                          </label>
+                          <button type="submit">Submit</button>
+                        </form>
+
+                        <h5 class="card-title fw-semibold mt-4">Service request Data</h5>
+                        <table class="table table-bordered table-striped">
+                          <thead>
+                            <tr>
+                              <th>Customer Name</th>
+                              <th>Customer Email</th>
+                              <th>Product</th>
+                              <th>Issue Description</th>
+                              <th>Is Resolved</th>
+                              <th>Priority Level</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let service of serviceapresvents">
+                              <td>{{ service.customerName }}</td>
+                              <td>{{ service.customerEmail }}</td>
+                              <td>{{ service.product }}</td>
+                              <td>{{ service.issueDescription }}</td>
+                              <td>{{ service.isResolved ? 'Yes' : 'No' }}</td>
+                              <td>{{ service.priorityLevel }}</td>
+                              <td>
+                                <button type="button" (click)="edit(service)">Modifier</button>
+                                <button type="button" (click)="delete(service)">Supprimer</button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+
+                     </div>
+                   </div>
+                 </div>
+             </div>
+           </div>
+             </div>
+           </div>
+
+
+</div>

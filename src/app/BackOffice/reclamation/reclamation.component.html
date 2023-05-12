@@ -1,0 +1,75 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" xmlns="http://www.w3.org/1999/html">
+  <!-- Sidebar Start -->
+  <app-back-header></app-back-header>
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title fw-semibold mb-4">Reclamation</h5>
+      <div class="card">
+        <div class="card-body">
+
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+
+                <label>
+                  Filter by Type:
+                  <input type="text" [(ngModel)]="filterValue" (input)="filterReclamations()" placeholder="Filter reclamations by type...">
+                </label>
+
+                <form (ngSubmit)="onSubmit()">
+<!--                  for="status"   [showClear]="true" -->
+                  <label >Status</label>
+                  <p-dropdown [options]="statusValues" [(ngModel)]="reclamation.status" [autoDisplayFirst]="false" placeholder="Select a status"  styleClass="dd-style" name="status"></p-dropdown>
+                  <label>
+                    type:
+                    <input type="email"  [(ngModel)]="reclamation.type" required name="aa">
+                  </label>
+                  <label>
+                    Description:
+                    <input type="text"  [(ngModel)]="reclamation.description" required name="bb">
+                  </label>
+                  <label>
+                    user:
+                  </label>
+                  <p-dropdown [options]="users" [(ngModel)]="reclamation.user" [autoDisplayFirst]="false" placeholder="Select a user" optionLabel="firstName" styleClass="dd-style" name="user"></p-dropdown>
+
+                  <button type="submit">Submit</button>
+                  <button type="button" (click)="generateQRCode()">Générer le code QR</button>
+
+                </form>
+
+                <h5 class="card-title fw-semibold mt-4">Reclamation Data</h5>
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>status</th>
+                      <th>type</th>
+                      <th>Description</th>
+                      <th>user</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let reclamation of filteredReclamations">
+                      <td>{{ reclamation.status }}</td>
+                      <td>{{ reclamation.type }}</td>
+                      <td>{{ reclamation.description }}</td>
+                      <td>{{reclamation.user.firstName}} {{reclamation.user.lastName}}</td>
+                      <td>
+                        <button type="button" (click)="edit(reclamation)">Modifier</button>
+                        <button type="button" (click)="delete(reclamation)">Supprimer</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

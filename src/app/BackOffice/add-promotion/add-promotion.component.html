@@ -1,0 +1,73 @@
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" xmlns="http://www.w3.org/1999/html">
+  <!-- Sidebar Start -->
+  <app-back-header></app-back-header>
+  <!--  Sidebar End -->
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+    <!--  Header Start -->
+
+    <!--  Header End -->
+
+      <div class="container-fluid">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-4">Add Promotion</h5>
+              <div class="card">
+                <div class="card-body">
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                          <span>
+                            <i class="ti ti-login"></i>
+                          </span>
+                          <span class="hide-menu">Add Promotion</span>
+                        </a>
+                      </li>
+
+                    <div class="container">
+                      <div class="row justify-content-center">
+                        <div class="col-md-6">
+
+
+
+
+          <form #addForm="ngForm" (ngSubmit)="onAddPromotion(addForm)">
+          <div class="mb-3">
+             <label >Id</label>
+             <input type="number" [ngModel] name="id" class="form-control" id="id" placeholder="Id" required>
+          </div>
+          <div class="mb-3">
+             <label >Rate</label>
+             <input type="number" [ngModel] name="promotionRate" class="form-control" id="promotionRrate" placeholder="Rate" required>
+          </div>
+          <div class="mb-3">
+             <label for="startDate">Start-Date</label>
+             <input type="date" [ngModel] name="startDate" class="form-control" id="startDate" placeholder="start date" required>
+          </div>
+          <div class="mb-3">
+             <label for="endDate">End-Date</label>
+             <input type="date" [ngModel] name="endDate" class="form-control" id="endDate" placeholder="EndDate" required>
+          </div>
+          <div class="mb-3">
+             <label for="couponCode">Coupon-Code</label>
+             <input type="text" [ngModel] name="couponCode" class="form-control" id="couponCode" placeholder="CouponCode" required>
+          </div>
+          <div class="modal-footer">
+
+             <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+          </div>
+          </form>
+       </div>
+
+                      </div></div></div></div></div></div></div></div>
+
+  </div></div>
+
+
+
+
+
+

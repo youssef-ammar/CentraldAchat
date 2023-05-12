@@ -1,0 +1,59 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+  <app-back-header></app-back-header>
+    <!--  Body Wrapper -->
+  <div class="body-wrapper">
+     <!--  Header Start -->
+     <!--  Header End -->
+     <div class="container-fluid">
+       <div class="container-fluid">
+         <div class="card">
+           <div class="card-body">
+             <h5 class="card-title fw-semibold mb-4">send Email</h5>
+             <div class="card">
+               <div class="card-body">
+
+                   <li class="sidebar-item">
+                       <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                         <span>
+                           <i class="ti ti-login"></i>
+                         </span>
+                         <span class="hide-menu">Login</span>
+                       </a>
+                     </li>
+
+                   <div class="container">
+                     <div class="row justify-content-center">
+                       <div class="col-md-6">
+
+                         <form #mailForm="ngForm" (ngSubmit)="sendEmails(mailForm)">
+
+                           <div class="mb-3">
+                             <label class="form-label">Recepient</label>
+                             <input type="text"  ngModel name="recepient" class="form-control" id="recepient"  >
+                           </div>
+
+                           <div class="mb-3">
+                             <label for="couponCode" class="form-label">Coupon Code</label>
+                             <input type="text"  ngModel name="couponCode" class="form-control"   id="couponCode"  >
+                           </div>
+
+
+
+                           <button [disabled]="mailForm.invalid" type="submit" class="btn btn-primary">Send</button>
+
+                         </form>
+
+                       </div>
+                     </div>
+                   </div>
+               </div>
+              </div>
+               </div>
+             </div>
+           </div>
+         </div>
+  </div>
+</div>
+
